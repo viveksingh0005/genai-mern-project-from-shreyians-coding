@@ -1,6 +1,21 @@
-import React from "react";
-
+import React,{useState} from "react";
+import { useAuth } from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 export const Login = () => {
+
+  const {loading, handleLogin} = useAuth()
+  const navigate = useNavigate()
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const handleSubmit = (e)=>{
+    e.preventDefault()
+    handleLogin({email,password})
+    navigate('/home')
+  }
+
+  if(loading){
+    return(<main><h1>Loading...</h1></main>)
+  }
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900">
       
@@ -10,11 +25,12 @@ export const Login = () => {
           Login
         </h1>
 
-        <form className="flex flex-col gap-4">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
 
           <div className="flex flex-col">
             <label className="text-gray-300 mb-1">Email</label>
             <input
+            onChange={(e)=>{setEmail(e.target.value)}}
               type="email"
               placeholder="Enter email address"
               className="px-3 py-2 rounded-lg bg-gray-700 text-white outline-none focus:ring-2 focus:ring-blue-500"
@@ -24,6 +40,7 @@ export const Login = () => {
           <div className="flex flex-col">
             <label className="text-gray-300 mb-1">Password</label>
             <input
+               onChange={(e)=>{setPassword(e.target.value)}}
               type="password"
               placeholder="Enter password"
               className="px-3 py-2 rounded-lg bg-gray-700 text-white outline-none focus:ring-2 focus:ring-blue-500"
