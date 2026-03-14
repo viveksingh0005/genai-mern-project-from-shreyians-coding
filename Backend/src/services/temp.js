@@ -96,3 +96,5 @@ Optimize application performance, scalability, and security.
 
 Work with version control systems such as Git for source code management.
 `
+
+module.exports={resume,selfDescription,jobDescription}
