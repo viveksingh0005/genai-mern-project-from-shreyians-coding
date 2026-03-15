@@ -5,6 +5,7 @@ import { Registration } from "./Features/Auth/Pages/Registration";
 
 import Protected from "./Features/Auth/Components/Protected.jsx";
 import Home from "./Features/interview/pages/Home.jsx";
+import Interview from "./Features/interview/pages/Interview.jsx";
  function App () {
   return (
     
@@ -13,6 +14,7 @@ import Home from "./Features/interview/pages/Home.jsx";
         <Route path="/login" element={<Login/>}/>
         <Route path="/register" element={<Registration/>}/>
         <Route path="/" element={<Home/>}/>
+        <Route path="/interview/" element={<Interview/>}/>
          
     </Routes>
 
