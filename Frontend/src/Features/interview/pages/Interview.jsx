@@ -1,12 +1,8 @@
 import { useState, useEffect } from "react"
 
 import { useParams } from "react-router"
+import {useInterview} from '../hooks/useinterview.js'
 
-const NAV_ITEMS = [
-  { id: "technical", label: "Technical Questions" },
-  { id: "behavioral", label: "Behavioral Questions" },
-  { id: "roadmap", label: "Road Map" },
-]
 
 const QuestionCard = ({ item, index }) => {
   const [open, setOpen] = useState(false)
