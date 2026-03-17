@@ -1,12 +1,13 @@
 import React from "react";
 import {useInterview} from '../hooks/useinterview.js'
 import { useNavigate } from "react-router-dom";
+import { useState,useRef } from "react";
 const Home = () => {
 
-    const {loading,generateReport}=useintervieww()
+    const {loading,generateReport}=useInterview()
     const [jobDescription ,setJobDescription] =useState("")
     const [SelfDescription,SetSelfDescription] = useState("")
-    const resumeInputREf =useRef()
+    const resumeInputRef =useRef()
 
     const navigate=useNavigate()
 
