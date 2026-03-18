@@ -13,7 +13,7 @@ export const Registration = () => {
   const handleSubmit= async(e)=>{
     e.preventDefault()
     await handleRegister({username, email,password})
-    navigate("/home")
+    navigate("/")
 
     if(loading){
       return(<main><h1>Loading...</h1></main>)
@@ -34,7 +34,7 @@ export const Registration = () => {
           <div>
             <label className="block text-sm font-medium">User Name</label>
             <input
-            onchange ={(e)=>{setUsername(e.target.value)}}
+            onChange ={(e)=>{setUsername(e.target.value)}}
               type="text"
               placeholder="Enter your username"
               className="w-full mt-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
@@ -45,7 +45,7 @@ export const Registration = () => {
           <div>
             <label className="block text-sm font-medium">Email</label>
             <input
-              onchange ={(e)=>{setEmail(e.target.value)}}
+              onChange ={(e)=>{setEmail(e.target.value)}}
               type="email"
               placeholder="Enter email address"
               className="w-full mt-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
@@ -56,7 +56,7 @@ export const Registration = () => {
           <div>
             <label className="block text-sm font-medium">Password</label>
             <input
-              onchange ={(e)=>{setPassword(e.target.value)}}
+              onChange ={(e)=>{setPassword(e.target.value)}}
               type="password"
               placeholder="Enter password"
               className="w-full mt-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"

@@ -6,17 +6,34 @@ const Home = () => {
 
     const {loading,generateReport}=useInterview()
     const [jobDescription ,setJobDescription] =useState("")
-    const [SelfDescription,SetSelfDescription] = useState("")
+    const [selfDescription,SetSelfDescription] = useState("")
     const resumeInputRef =useRef()
 
     const navigate=useNavigate()
 
-    const handleGenerateReport = async()=>{
-        const resumeFile = resumeInputRef.current.files[0]
-        await generateReport({jobDescription, selfDescription, resumeFile})
-        navigate(`/interview/${data._id}`)
+   const handleGenerateReport = async () => {
+    const resumeFile = resumeInputRef.current.files[0]
 
-       
+    const data = await generateReport({
+        jobDescription,
+        selfDescription,
+        resumeFile
+    })
+
+    // ✅ SAFETY CHECK
+    if (!data || !data._id) {
+        alert("Failed to generate report. Please try again.")
+        return
+    }
+
+    navigate(`/interview/${data._id}`)
+}
+    if(loading){
+      return(
+        <main className="loading-screen">
+          <h1>Loading your  interview plan...</h1>
+        </main>
+      )
     }
 
   return (
@@ -34,7 +51,7 @@ const Home = () => {
             Job Description
           </label>
           <textarea
-             onChange={(e)=>{SetJobDescription(e.target.value)}}
+             onChange={(e)=>{setJobDescription(e.target.value)}}
             name="jobDescription"
             placeholder="Paste the job description here..."
             className="w-full h-32 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"

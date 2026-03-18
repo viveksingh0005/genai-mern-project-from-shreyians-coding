@@ -12,6 +12,7 @@ const interviewRouter = express.Router()
  * @description generate new interview report on the basis of user self description,resume pdf and job description.
  * @access private
  */
+
 interviewRouter.post("/", authMiddleware.authUser, upload.single("resume"), interviewController.generateInterViewReportController)
 
 /**
@@ -19,6 +20,7 @@ interviewRouter.post("/", authMiddleware.authUser, upload.single("resume"), inte
  * @description get interview report by interviewId.
  * @access private
  */
+
 interviewRouter.get("/report/:interviewId", authMiddleware.authUser, interviewController.getInterviewReportByIdController)
 
 
@@ -27,6 +29,7 @@ interviewRouter.get("/report/:interviewId", authMiddleware.authUser, interviewCo
  * @description get all interview reports of logged in user.
  * @access private
  */
+
 interviewRouter.get("/", authMiddleware.authUser, interviewController.getAllInterviewReportsController)
 
 
