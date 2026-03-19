@@ -9,16 +9,16 @@ export const Registration = () => {
   const[password, setPassword] =useState("")
 
   const {loading,handleRegister} = useAuth()
-
-  const handleSubmit= async(e)=>{
-    e.preventDefault()
-    await handleRegister({username, email,password})
-    navigate("/")
+     const handleSubmit = async (e) => {
+        e.preventDefault()
+        await handleRegister({username,email,password})
+        navigate("/")
+    }
 
     if(loading){
-      return(<main><h1>Loading...</h1></main>)
+        return (<main><h1>Loading.......</h1></main>)
     }
-  }
+  
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       

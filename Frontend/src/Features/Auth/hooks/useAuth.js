@@ -10,19 +10,21 @@ export const useAuth = () => {
     const { user, setUser, loading, setLoading } = context
 
 
-    const handleLogin = async ({ email, password }) => {
-        setLoading(true)
-        try {
-            const data = await login({ email, password })
-            setUser(data.user)
-        } catch (err) {
-
-        } finally {
-            setLoading(false)
-        }
+   const handleLogin = async ({ email, password }) => {
+    setLoading(true)
+    try {
+        const data = await login({ email, password })
+        console.log("data from API:", data)  // ✅ what does this print?
+        setUser(data.user)
+        return { success: true }
+    } catch (err) {
+        console.log("error:", err)  // ✅ what does this print?
+        return { success: false, message: err.response?.data?.message || "Login failed" }
     }
+}
 
-    const handleRegister = async ({ username, email, password }) => {
+    
+     const handleRegister = async ({ username, email, password }) => {
         setLoading(true)
         try {
             const data = await register({ username, email, password })

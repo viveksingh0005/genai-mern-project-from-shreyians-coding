@@ -7,15 +7,18 @@ export const Login = () => {
   const navigate = useNavigate()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const handleSubmit = (e)=>{
+   const handleSubmit = async (e) => {
     e.preventDefault()
-    handleLogin({email,password})
-    navigate('/')
-  }
+    const result = await handleLogin({ email, password })
+    if (result?.success) {       // ✅ only navigate on success
+        navigate('/')
+    } else {
+        alert(result?.message || "email or password is not true") 
+        // or use a state to show error in UI
+    }
+}
 
-  if(loading){
-    return(<main><h1>Loading...</h1></main>)
-  }
+ 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900">
       

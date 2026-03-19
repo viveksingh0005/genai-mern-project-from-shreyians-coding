@@ -63,23 +63,27 @@ async function registerUserController(req, res) {
  * @access Public
  */
 async function loginUserController(req, res) {
-
     const { email, password } = req.body
 
+    
+
     const user = await userModel.findOne({ email })
+    
+
+     
+
+
+   
 
     if (!user) {
-        return res.status(400).json({
-            message: "Invalid email or password"
-        })
+        return res.status(400).json({ message: "Invalid email or password" })
     }
 
     const isPasswordValid = await bcrypt.compare(password, user.password)
+    console.log("Password match result:", isPasswordValid) 
 
     if (!isPasswordValid) {
-        return res.status(400).json({
-            message: "Invalid email or password"
-        })
+        return res.status(400).json({ message: "Invalid email or password" })
     }
 
     const token = jwt.sign(

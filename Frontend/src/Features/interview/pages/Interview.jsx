@@ -67,7 +67,11 @@ const RoadMapDay = ({ day }) => (
     </ul>
   </div>
 )
-
+const NAV_ITEMS = [
+    { id: "technical", label: "Technical Questions" },
+    { id: "behavioral", label: "Behavioral Questions" },
+    { id: "roadmap", label: "Preparation Road Map" },
+]
 const Interview = () => {
   const [activeNav, setActiveNav] = useState("technical")
   const { report, getReportById, loading, getResumePdf } = useInterview()
