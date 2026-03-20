@@ -14,7 +14,6 @@ import Interview from "./Features/interview/pages/Interview.jsx";
         <Route path="/login" element={<Login/>}/>
         <Route path="/register" element={<Registration/>}/>
         <Route path="/" element={<Home/>}/>
-   
         <Route path="/interview/:id" element={<Interview />} />
          
     </Routes>

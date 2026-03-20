@@ -75,11 +75,11 @@ const NAV_ITEMS = [
 const Interview = () => {
   const [activeNav, setActiveNav] = useState("technical")
   const { report, getReportById, loading, getResumePdf } = useInterview()
-  const { interviewId } = useParams()
+  const { id } = useParams()
 
-  useEffect(() => {
-    if (interviewId) getReportById(interviewId)
-  }, [interviewId])
+useEffect(() => {
+  if (id) getReportById(id)
+}, [id])
 
   if (loading || !report) {
     return (
