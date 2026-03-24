@@ -12,7 +12,7 @@ app.use(cookieParser())
 // Require all the routes here
 const authRouter = require("./routes/auth.routes");
 const interviewRouter = require("./routes/interview.routes")
-
+app.use("/api/payment", require("./routes/payment"));
 
 
 /* using all the routes here */
