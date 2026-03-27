@@ -4,26 +4,28 @@ import { Login } from "./Features/Auth/Pages/Login";
 import { Registration } from "./Features/Auth/Pages/Registration";
 
 
-import Home from "./Features/interview/pages/Home.jsx";
+
 import Interview from "./Features/interview/pages/Interview.jsx";
 import First from "./First.jsx";
 import PaymentPage from "./Features/Payment/pages/PaymentPage.jsx";
-import { TrueHome } from "./TrueHome.jsx";
+import { Home } from "./Home.jsx";
 import TemplatesPage from "./Features/resumecreator/pages/TemplatePage";
 import TemplatePreview from "./Features/resumecreator/pages/TemplatePreview";
 import ATSResumeBuilder from "./Features/resumecreator/pages/ATSResumeEditor";
+
+import InterviewGuest from "./Features/interview/pages/InterviewGuest.jsx";
  function App () {
   return (
     
     <>
     <Routes>
         <Route path="/login" element={<Login/>}/>
-        <Route path="/register" element={<Registration/>}/>
-        <Route path="/" element={<Home/>}/>
+        <Route path="/signup" element={<Registration/>}/>
+        <Route path="/interview" element={<InterviewGuest/>}/>
         <Route path="/interview/:id" element={<Interview />} />
         <Route path="/first" element={<First/>} />
         <Route path="/pay" element={<PaymentPage/>} />
-        <Route path="/true" element={<TrueHome/>}/>
+        <Route path="/" element={<Home/>}/>
         <Route path="/templates" element={<TemplatesPage />} />
         <Route path="/template/:id" element={<TemplatePreview />} />
         <Route path="/editor/:id" element={<ATSResumeBuilder />} />

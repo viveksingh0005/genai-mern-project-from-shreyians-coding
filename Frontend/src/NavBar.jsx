@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X, Search, User } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
@@ -24,17 +25,18 @@ export default function NavBar() {
 
         {/* Right Actions */}
         <div className="hidden md:flex items-center gap-4">
-          <button className="p-2 rounded-full hover:bg-gray-100 transition">
-            <Search size={20} />
-          </button>
 
-          <button className="p-2 rounded-full hover:bg-gray-100 transition">
-            <User size={20} />
-          </button>
+          <NavLink to="/login">
+            <button className="px-4 py-2 rounded-full bg-black text-white text-sm hover:bg-gray-800 transition">
+              Login
+            </button>
+          </NavLink>
+          <NavLink to="/signup">
+            <button className="px-4 py-2 rounded-full bg-black text-white text-sm hover:bg-gray-800 transition">
+              Signup
+            </button>
+          </NavLink>
 
-          <button className="px-4 py-2 rounded-full bg-black text-white text-sm hover:bg-gray-800 transition">
-            Login
-          </button>
         </div>
 
         {/* Mobile Menu Button */}

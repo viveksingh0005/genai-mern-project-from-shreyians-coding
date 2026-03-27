@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useInterview } from "../hooks/useinterview.js";
 import { useNavigate } from "react-router-dom";
 
-const Home = () => {
+const InterviewGuest = () => {
   const { loading, generateReport } = useInterview();
   const { getReportById }=useInterview();
   const [jobDescription, setJobDescription] = useState("");
@@ -154,4 +154,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default InterviewGuest;
