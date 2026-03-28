@@ -1,17 +1,23 @@
-import {useAuth} from "../hooks/useAuth"
-import React from 'react'
-import { Navigate } from "react-router-dom"
- const Protected = ({children}) => {
-   
-    const {loading,user} = useAuth()
-    if(loading){
-        return (<main><h1>Loading...</h1></main>)
-    }
-    if(!user){
-        return<Navigate to={'/login'}/>
-        
-    }
-  return children
-}
+import { Navigate, Outlet } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
-export default Protected
+const Protected = () => {
+  const { loading, user } = useAuth();
+
+  if (loading) {
+    return (
+      <main>
+        <h1>Loading...</h1>
+      </main>
+    );
+  }
+
+  if (!user) {
+    return <Navigate to="/login" replace />;
+  }
+
+  // This is the most important line for nested routes
+  return <Outlet />;
+};
+
+export default Protected;

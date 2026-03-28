@@ -14,6 +14,7 @@ import TemplatePreview from "./Features/resumecreator/pages/TemplatePreview";
 import ATSResumeBuilder from "./Features/resumecreator/pages/ATSResumeEditor";
 
 import InterviewGuest from "./Features/interview/pages/InterviewGuest.jsx";
+import Protected from "./Features/Auth/Components/Protected.jsx";
  function App () {
   return (
     
@@ -26,7 +27,10 @@ import InterviewGuest from "./Features/interview/pages/InterviewGuest.jsx";
         <Route path="/first" element={<First/>} />
         <Route path="/pay" element={<PaymentPage/>} />
         <Route path="/" element={<Home/>}/>
-        <Route path="/templates" element={<TemplatesPage />} />
+        <Route element={<Protected />}>
+         <Route path="/templates" element={<TemplatesPage />} />
+        </Route>
+       
         <Route path="/template/:id" element={<TemplatePreview />} />
         <Route path="/editor/:id" element={<ATSResumeBuilder />} />
          

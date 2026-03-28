@@ -2,6 +2,7 @@ import React from 'react'
 import NavBar from './NavBar'
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
+import Footer from './Footer';
 export const Home = () => {
   return (
     <>
@@ -78,64 +79,7 @@ export const Home = () => {
               Not just a resume builder — a complete smart career assistant.
             </p>
           </div>
-          <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      
-      <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
-        
-        <h2 className="text-2xl font-bold text-center mb-6">
-          Create Account
-        </h2>
-
-        <form onSubmit={handleSubmit} className="space-y-4">
-
-          {/* Name */}
-          <div>
-            <label className="block text-sm font-medium">User Name</label>
-            <input
-            onChange ={(e)=>{setUsername(e.target.value)}}
-              type="text"
-              placeholder="Enter your username"
-              className="w-full mt-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-            />
-          </div>
-
-          {/* Email */}
-          <div>
-            <label className="block text-sm font-medium">Email</label>
-            <input
-              onChange ={(e)=>{setEmail(e.target.value)}}
-              type="email"
-              placeholder="Enter email address"
-              className="w-full mt-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-            />
-          </div>
-
-          {/* Password */}
-          <div>
-            <label className="block text-sm font-medium">Password</label>
-            <input
-              onChange ={(e)=>{setPassword(e.target.value)}}
-              type="password"
-              placeholder="Enter password"
-              className="w-full mt-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-            />
-          </div>
-
-         
-
-          {/* Button */}
-          <button
-            type="submit"
-            className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition"
-          >
-            Register
-          </button>
-
-        </form>
-
-      </div>
-
-    </div>
+          
           <div className="grid md:grid-cols-2 gap-10">
             {/* Feature 1 */}
             <NavLink to="/templates">
@@ -175,6 +119,7 @@ export const Home = () => {
           </div>
         </div>
       </section>
+      <Footer/>
     </>
   )
 }
